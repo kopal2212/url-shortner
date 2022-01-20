@@ -42,3 +42,21 @@ Once the application is up and running,to test it execute:
           }
         }
 
+---
+ FAQs
+---
+
+-> How are invalid URLs as an input while Shortening a URL handled?
+
+As soon as the user inputs the URL(to be shortened) in POST request, we fetch that URL and pass it to a function named: isValidURL() which has a regular expression within it which can be matched against the input and it return true if the URL matches with the given regular expression, else return fails. In case of fail as a response the operation is aborted with an error code 400 Bad Request.
+
+
+-> How are invalid identifiers are handled while looking up a original URL from shortened URL's identifier ?
+
+We are using MongoDb as Database for storage as the user makes the GET request to the server with an identifier that identifier is fetched and matched within the documents in the db, if it gets matched the corresponding original URL is returned as the response otherwise the operation aborted with an error code 404 Not Found.
+
+-> How is the request to shorten a URL we've seen before is handled ?
+
+Whenever a request comes to shorten the URL, the input URL by the user is matched with the documents in the database.If the document with the input URL exists in the db the corresponding shortened URL stored in the db is returned instead of generating a new shortened URL.
+
+
