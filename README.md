@@ -10,8 +10,8 @@ The application has 2 methods:
 
 To run application, clone the repository and execute following commands
 
-1. `docker compose build`
-2. `docker compose up`
+1. `docker-compose build`
+2. `docker-compose up`
 
 Once the application is up and running,to test it execute:
     
