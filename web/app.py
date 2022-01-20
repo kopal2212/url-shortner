@@ -26,8 +26,6 @@ def lookup(url_id=None):
             url['added'] = date_to_str(url['added'])
             del url['_id']
             return jsonify({'lookup': url}),200
-        else:
-            return "Provide valid URL ID"
     abort(404)
 
 #route to fetch the original web link from the user and return the shortened URL
